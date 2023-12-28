@@ -181,29 +181,6 @@
 	</style>
 
 	<script>
-		const setColors = [
-			"",
-			"#CC9900", "#66CC99", "#FF6666", "#6699CC", "#444444", "#BBBBBB", "#FFCC33", "#FF99FF", "#880000",
-			"#555555", "#996633", "#CC6633", "#CCCC66", "#6699FF", "#666633", "#CC3333", "#FF3333", "#66CC00",
-			"#6699FF", "#339933", "#444444", "#66CCFF", "#666666", "#333333", "#FFCC66", "#CC33CC", "#FFCC00",
-			"#FF3300", "#003366", "#FFCCFF", "#663300", "#000000", "#666666", "#444444", "#99CC66", "#FFCC66",
-			"#EEEEEE", "#444444", "#99CCCC", "#006633", "#444444", "#444444", "#333333", "#333333", "#777777",
-			"#333366", "#444444", "#FF9900", "#FFCC00", "#444444", "#EEEEEE", "#9900FF", "#666699", "#333366",
-			"#FFCC33", "#FF00FF", "#CC6600", "#00CCCC", "#00BB00", "#CC9900", "#66CCFF", "#CCCC66", "#333300",
-			"#669966", "#669900", "#996633", "#669900", "#99CC33", "#EEEEEE", "#DD0000", "#1263C7", "#67CCD0",
-		]
-		const setBorder = [
-			"",
-			"#000000", "#000000", "#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#000000", "#FFFFFF",
-			"#FFFFFF", "#000000", "#000000", "#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#000000",
-			"#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#000000",
-			"#000000", "#FFFFFF", "#000000", "#FFFFFF", "#FFFFFF", "#000000", "#FFFFFF", "#000000", "#000000",
-			"#000000", "#FFFFFF", "#000000", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#000000",
-			"#FFFFFF", "#FFFFFF", "#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#000000", "#FFFFFF",
-			"#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#FFFFFF",
-			"#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000",
-		]
-
 		const titleNames = {
 			'hhbr': "Livro de Sons",
 			'hhus': "Samples Book",
@@ -219,30 +196,7 @@
 			'hhse': "Provexemplarbok",
 		}
 		window.addEventListener('load', async evt => {
-			const names = await loadNames('hhbr')
-
-			document.querySelector('h1').innerText = titleNames['hhbr']
-
-			for (let i = 1; i <= 72; i++) {
-				let container = document.createElement('div')
-				container.classList.add('card')
-				container.style.cssText = `--set-color: ${setColors[i] ?? "#000"}; --set-border-color: ${setBorder[i] ?? "#FFF"}`
-
-				let imgUrl = `https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/${('' + i).padStart(2, '0')}.gif`
-				container.innerHTML += `<h2 title="${names[`sound_set_${i}`].name} - ${names[`sound_set_${i}`].description}" class="title">${i} <span>${names[`sound_set_${i}`].name}</span></h2><img src="${imgUrl}" title="${names[`sound_set_${i}`].name} - ${names[`sound_set_${i}`].description}" class="set" />`
-				const moduleContainer = document.createElement('div')
-				moduleContainer.classList.add('module-container')
-				for (let j = 1; j <= 9; j++) {
-					const module = document.createElement('button')
-					module.classList.add('module')
-					module.setAttribute('data-id', (i-1)*9+j)
-					module.setAttribute('title', `Sample id: ${(i - 1) * 9 + j}`)
-					module.addEventListener('click', play)
-					moduleContainer.appendChild(module)
-				}
-				container.appendChild(moduleContainer)
-				document.querySelector('main').appendChild(container)
-			}
+			document.querySelectorAll(".module").forEach(elem => elem.addEventListener('click', play))
 
 			document.querySelector("select").addEventListener('change', evt => {
 				updateNames(evt.target.selectedOptions[0].value)
@@ -307,7 +261,7 @@
 
 <body>
 	<nav>
-		<h1>Samples Book</h1>
+		<h1>Livro de Sons</h1>
 		<select name="lang">
 			<option>hhbr</option>
 			<option>hhus</option>
@@ -323,7 +277,1009 @@
 			<option>hhse</option>
 		</select>
 	</nav>
-	<main></main>
+	<main>
+		<div class="card" style="--set-color: #CC9900; --set-border-color: #000000;">
+			<h2 title="Duck Funk - DJ Fuse - Rock" class="title">1 <span>Duck Funk - DJ Fuse</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/01.gif"
+				title="Duck Funk - DJ Fuse - Rock" class="set">
+			<div class="module-container"><button class="module" data-id="1" title="Sample id: 1"></button><button
+					class="module" data-id="2" title="Sample id: 2"></button><button class="module" data-id="3"
+					title="Sample id: 3"></button><button class="module" data-id="4" title="Sample id: 4"></button><button
+					class="module" data-id="5" title="Sample id: 5"></button><button class="module" data-id="6"
+					title="Sample id: 6"></button><button class="module" data-id="7" title="Sample id: 7"></button><button
+					class="module" data-id="8" title="Sample id: 8"></button><button class="module" data-id="9"
+					title="Sample id: 9"></button></div>
+		</div>
+		<div class="card" style="--set-color: #66CC99; --set-border-color: #000000;">
+			<h2 title="Habbo - DJ Fuse - Melodias Clássicas Habbo" class="title">2 <span>Habbo - DJ Fuse</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/02.gif"
+				title="Habbo - DJ Fuse - Melodias Clássicas Habbo" class="set">
+			<div class="module-container"><button class="module" data-id="10" title="Sample id: 10"></button><button
+					class="module" data-id="11" title="Sample id: 11"></button><button class="module" data-id="12"
+					title="Sample id: 12"></button><button class="module" data-id="13"
+					title="Sample id: 13"></button><button class="module" data-id="14"
+					title="Sample id: 14"></button><button class="module" data-id="15"
+					title="Sample id: 15"></button><button class="module" data-id="16"
+					title="Sample id: 16"></button><button class="module" data-id="17"
+					title="Sample id: 17"></button><button class="module" data-id="18" title="Sample id: 18"></button></div>
+		</div>
+		<div class="card" style="--set-color: #FF6666; --set-border-color: #000000;">
+			<h2 title="BattleBall - Loucura 8bit" class="title">3 <span>BattleBall</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/03.gif"
+				title="BattleBall - Loucura 8bit" class="set">
+			<div class="module-container"><button class="module" data-id="19" title="Sample id: 19"></button><button
+					class="module" data-id="20" title="Sample id: 20"></button><button class="module" data-id="21"
+					title="Sample id: 21"></button><button class="module" data-id="22"
+					title="Sample id: 22"></button><button class="module" data-id="23"
+					title="Sample id: 23"></button><button class="module" data-id="24"
+					title="Sample id: 24"></button><button class="module" data-id="25"
+					title="Sample id: 25"></button><button class="module" data-id="26"
+					title="Sample id: 26"></button><button class="module" data-id="27" title="Sample id: 27"></button></div>
+		</div>
+		<div class="card" style="--set-color: #6699CC; --set-border-color: #000000;">
+			<h2 title="Aventuras dos Pôr do Sol - Relaxando" class="title">4 <span>Aventuras dos Pôr do Sol</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/04.gif"
+				title="Aventuras dos Pôr do Sol - Relaxando" class="set">
+			<div class="module-container"><button class="module" data-id="28" title="Sample id: 28"></button><button
+					class="module" data-id="29" title="Sample id: 29"></button><button class="module" data-id="30"
+					title="Sample id: 30"></button><button class="module" data-id="31"
+					title="Sample id: 31"></button><button class="module" data-id="32"
+					title="Sample id: 32"></button><button class="module" data-id="33"
+					title="Sample id: 33"></button><button class="module" data-id="34"
+					title="Sample id: 34"></button><button class="module" data-id="35"
+					title="Sample id: 35"></button><button class="module" data-id="36" title="Sample id: 36"></button></div>
+		</div>
+		<div class="card" style="--set-color: #444444; --set-border-color: #FFFFFF;">
+			<h2 title="Céu Nublado - Alma em transe" class="title">5 <span>Céu Nublado</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/05.gif"
+				title="Céu Nublado - Alma em transe" class="set">
+			<div class="module-container"><button class="module" data-id="37" title="Sample id: 37"></button><button
+					class="module" data-id="38" title="Sample id: 38"></button><button class="module" data-id="39"
+					title="Sample id: 39"></button><button class="module" data-id="40"
+					title="Sample id: 40"></button><button class="module" data-id="41"
+					title="Sample id: 41"></button><button class="module" data-id="42"
+					title="Sample id: 42"></button><button class="module" data-id="43"
+					title="Sample id: 43"></button><button class="module" data-id="44"
+					title="Sample id: 44"></button><button class="module" data-id="45" title="Sample id: 45"></button></div>
+		</div>
+		<div class="card" style="--set-color: #BBBBBB; --set-border-color: #000000;">
+			<h2 title="Ambiências - Som ambiente" class="title">6 <span>Ambiências</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/06.gif"
+				title="Ambiências - Som ambiente" class="set">
+			<div class="module-container"><button class="module" data-id="46" title="Sample id: 46"></button><button
+					class="module" data-id="47" title="Sample id: 47"></button><button class="module" data-id="48"
+					title="Sample id: 48"></button><button class="module" data-id="49"
+					title="Sample id: 49"></button><button class="module" data-id="50"
+					title="Sample id: 50"></button><button class="module" data-id="51"
+					title="Sample id: 51"></button><button class="module" data-id="52"
+					title="Sample id: 52"></button><button class="module" data-id="53"
+					title="Sample id: 53"></button><button class="module" data-id="54" title="Sample id: 54"></button></div>
+		</div>
+		<div class="card" style="--set-color: #FFCC33; --set-border-color: #000000;">
+			<h2 title="Som dos Mobis - Efeitos Mobísticos" class="title">7 <span>Som dos Mobis</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/07.gif"
+				title="Som dos Mobis - Efeitos Mobísticos" class="set">
+			<div class="module-container"><button class="module" data-id="55" title="Sample id: 55"></button><button
+					class="module" data-id="56" title="Sample id: 56"></button><button class="module" data-id="57"
+					title="Sample id: 57"></button><button class="module" data-id="58"
+					title="Sample id: 58"></button><button class="module" data-id="59"
+					title="Sample id: 59"></button><button class="module" data-id="60"
+					title="Sample id: 60"></button><button class="module" data-id="61"
+					title="Sample id: 61"></button><button class="module" data-id="62"
+					title="Sample id: 62"></button><button class="module" data-id="63" title="Sample id: 63"></button></div>
+		</div>
+		<div class="card" style="--set-color: #FF99FF; --set-border-color: #000000;">
+			<h2 title="Electrônico - Grooves eletrônicos" class="title">8 <span>Electrônico</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/08.gif"
+				title="Electrônico - Grooves eletrônicos" class="set">
+			<div class="module-container"><button class="module" data-id="64" title="Sample id: 64"></button><button
+					class="module" data-id="65" title="Sample id: 65"></button><button class="module" data-id="66"
+					title="Sample id: 66"></button><button class="module" data-id="67"
+					title="Sample id: 67"></button><button class="module" data-id="68"
+					title="Sample id: 68"></button><button class="module" data-id="69"
+					title="Sample id: 69"></button><button class="module" data-id="70"
+					title="Sample id: 70"></button><button class="module" data-id="71"
+					title="Sample id: 71"></button><button class="module" data-id="72" title="Sample id: 72"></button></div>
+		</div>
+		<div class="card" style="--set-color: #880000; --set-border-color: #FFFFFF;">
+			<h2 title="Místico - Brumas místicas" class="title">9 <span>Místico</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/09.gif"
+				title="Místico - Brumas místicas" class="set">
+			<div class="module-container"><button class="module" data-id="73" title="Sample id: 73"></button><button
+					class="module" data-id="74" title="Sample id: 74"></button><button class="module" data-id="75"
+					title="Sample id: 75"></button><button class="module" data-id="76"
+					title="Sample id: 76"></button><button class="module" data-id="77"
+					title="Sample id: 77"></button><button class="module" data-id="78"
+					title="Sample id: 78"></button><button class="module" data-id="79"
+					title="Sample id: 79"></button><button class="module" data-id="80"
+					title="Sample id: 80"></button><button class="module" data-id="81" title="Sample id: 81"></button></div>
+		</div>
+		<div class="card" style="--set-color: #555555; --set-border-color: #FFFFFF;">
+			<h2 title="Boy Band - Super popular." class="title">10 <span>Boy Band</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/10.gif"
+				title="Boy Band - Super popular." class="set">
+			<div class="module-container"><button class="module" data-id="82" title="Sample id: 82"></button><button
+					class="module" data-id="83" title="Sample id: 83"></button><button class="module" data-id="84"
+					title="Sample id: 84"></button><button class="module" data-id="85"
+					title="Sample id: 85"></button><button class="module" data-id="86"
+					title="Sample id: 86"></button><button class="module" data-id="87"
+					title="Sample id: 87"></button><button class="module" data-id="88"
+					title="Sample id: 88"></button><button class="module" data-id="89"
+					title="Sample id: 89"></button><button class="module" data-id="90" title="Sample id: 90"></button></div>
+		</div>
+		<div class="card" style="--set-color: #996633; --set-border-color: #000000;">
+			<h2 title="Spicey Donna - Música dance e disco." class="title">11 <span>Spicey Donna</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/11.gif"
+				title="Spicey Donna - Música dance e disco." class="set">
+			<div class="module-container"><button class="module" data-id="91" title="Sample id: 91"></button><button
+					class="module" data-id="92" title="Sample id: 92"></button><button class="module" data-id="93"
+					title="Sample id: 93"></button><button class="module" data-id="94"
+					title="Sample id: 94"></button><button class="module" data-id="95"
+					title="Sample id: 95"></button><button class="module" data-id="96"
+					title="Sample id: 96"></button><button class="module" data-id="97"
+					title="Sample id: 97"></button><button class="module" data-id="98"
+					title="Sample id: 98"></button><button class="module" data-id="99" title="Sample id: 99"></button></div>
+		</div>
+		<div class="card" style="--set-color: #CC6633; --set-border-color: #000000;">
+			<h2 title="Abe Normal - Sonso aleatórios." class="title">12 <span>Abe Normal</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/12.gif"
+				title="Abe Normal - Sonso aleatórios." class="set">
+			<div class="module-container"><button class="module" data-id="100" title="Sample id: 100"></button><button
+					class="module" data-id="101" title="Sample id: 101"></button><button class="module" data-id="102"
+					title="Sample id: 102"></button><button class="module" data-id="103"
+					title="Sample id: 103"></button><button class="module" data-id="104"
+					title="Sample id: 104"></button><button class="module" data-id="105"
+					title="Sample id: 105"></button><button class="module" data-id="106"
+					title="Sample id: 106"></button><button class="module" data-id="107"
+					title="Sample id: 107"></button><button class="module" data-id="108" title="Sample id: 108"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #CCCC66; --set-border-color: #000000;">
+			<h2 title="Café Muzzakh - Música de elevador." class="title">13 <span>Café Muzzakh</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/13.gif"
+				title="Café Muzzakh - Música de elevador." class="set">
+			<div class="module-container"><button class="module" data-id="109" title="Sample id: 109"></button><button
+					class="module" data-id="110" title="Sample id: 110"></button><button class="module" data-id="111"
+					title="Sample id: 111"></button><button class="module" data-id="112"
+					title="Sample id: 112"></button><button class="module" data-id="113"
+					title="Sample id: 113"></button><button class="module" data-id="114"
+					title="Sample id: 114"></button><button class="module" data-id="115"
+					title="Sample id: 115"></button><button class="module" data-id="116"
+					title="Sample id: 116"></button><button class="module" data-id="117" title="Sample id: 117"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #6699FF; --set-border-color: #000000;">
+			<h2 title="Ex da Cameron - Batidas loucas." class="title">14 <span>Ex da Cameron</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/14.gif"
+				title="Ex da Cameron - Batidas loucas." class="set">
+			<div class="module-container"><button class="module" data-id="118" title="Sample id: 118"></button><button
+					class="module" data-id="119" title="Sample id: 119"></button><button class="module" data-id="120"
+					title="Sample id: 120"></button><button class="module" data-id="121"
+					title="Sample id: 121"></button><button class="module" data-id="122"
+					title="Sample id: 122"></button><button class="module" data-id="123"
+					title="Sample id: 123"></button><button class="module" data-id="124"
+					title="Sample id: 124"></button><button class="module" data-id="125"
+					title="Sample id: 125"></button><button class="module" data-id="126" title="Sample id: 126"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #666633; --set-border-color: #FFFFFF;">
+			<h2 title="El Generico - R 'n' B para massas" class="title">15 <span>El Generico</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/15.gif"
+				title="El Generico - R 'n' B para massas" class="set">
+			<div class="module-container"><button class="module" data-id="127" title="Sample id: 127"></button><button
+					class="module" data-id="128" title="Sample id: 128"></button><button class="module" data-id="129"
+					title="Sample id: 129"></button><button class="module" data-id="130"
+					title="Sample id: 130"></button><button class="module" data-id="131"
+					title="Sample id: 131"></button><button class="module" data-id="132"
+					title="Sample id: 132"></button><button class="module" data-id="133"
+					title="Sample id: 133"></button><button class="module" data-id="134"
+					title="Sample id: 134"></button><button class="module" data-id="135" title="Sample id: 135"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #CC3333; --set-border-color: #000000;">
+			<h2 title="Ferry Nultado - Melodia chique." class="title">16 <span>Ferry Nultado</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/16.gif"
+				title="Ferry Nultado - Melodia chique." class="set">
+			<div class="module-container"><button class="module" data-id="136" title="Sample id: 136"></button><button
+					class="module" data-id="137" title="Sample id: 137"></button><button class="module" data-id="138"
+					title="Sample id: 138"></button><button class="module" data-id="139"
+					title="Sample id: 139"></button><button class="module" data-id="140"
+					title="Sample id: 140"></button><button class="module" data-id="141"
+					title="Sample id: 141"></button><button class="module" data-id="142"
+					title="Sample id: 142"></button><button class="module" data-id="143"
+					title="Sample id: 143"></button><button class="module" data-id="144" title="Sample id: 144"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FF3333; --set-border-color: #000000;">
+			<h2 title="Jive Sideburns - Jive Sideburns" class="title">17 <span>Jive Sideburns</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/17.gif"
+				title="Jive Sideburns - Jive Sideburns" class="set">
+			<div class="module-container"><button class="module" data-id="145" title="Sample id: 145"></button><button
+					class="module" data-id="146" title="Sample id: 146"></button><button class="module" data-id="147"
+					title="Sample id: 147"></button><button class="module" data-id="148"
+					title="Sample id: 148"></button><button class="module" data-id="149"
+					title="Sample id: 149"></button><button class="module" data-id="150"
+					title="Sample id: 150"></button><button class="module" data-id="151"
+					title="Sample id: 151"></button><button class="module" data-id="152"
+					title="Sample id: 152"></button><button class="module" data-id="153" title="Sample id: 153"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #66CC00; --set-border-color: #000000;">
+			<h2 title="Cartucho Samba - Batidas de samba." class="title">18 <span>Cartucho Samba</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/18.gif"
+				title="Cartucho Samba - Batidas de samba." class="set">
+			<div class="module-container"><button class="module" data-id="154" title="Sample id: 154"></button><button
+					class="module" data-id="155" title="Sample id: 155"></button><button class="module" data-id="156"
+					title="Sample id: 156"></button><button class="module" data-id="157"
+					title="Sample id: 157"></button><button class="module" data-id="158"
+					title="Sample id: 158"></button><button class="module" data-id="159"
+					title="Sample id: 159"></button><button class="module" data-id="160"
+					title="Sample id: 160"></button><button class="module" data-id="161"
+					title="Sample id: 161"></button><button class="module" data-id="162" title="Sample id: 162"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #6699FF; --set-border-color: #000000;">
+			<h2 title="MnM - Batidas com suíngue" class="title">19 <span>MnM</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/19.gif"
+				title="MnM - Batidas com suíngue" class="set">
+			<div class="module-container"><button class="module" data-id="163" title="Sample id: 163"></button><button
+					class="module" data-id="164" title="Sample id: 164"></button><button class="module" data-id="165"
+					title="Sample id: 165"></button><button class="module" data-id="166"
+					title="Sample id: 166"></button><button class="module" data-id="167"
+					title="Sample id: 167"></button><button class="module" data-id="168"
+					title="Sample id: 168"></button><button class="module" data-id="169"
+					title="Sample id: 169"></button><button class="module" data-id="170"
+					title="Sample id: 170"></button><button class="module" data-id="171" title="Sample id: 171"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #339933; --set-border-color: #000000;">
+			<h2 title="Monkey Paradise - Monkey Paradise" class="title">20 <span>Monkey Paradise</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/20.gif"
+				title="Monkey Paradise - Monkey Paradise" class="set">
+			<div class="module-container"><button class="module" data-id="172" title="Sample id: 172"></button><button
+					class="module" data-id="173" title="Sample id: 173"></button><button class="module" data-id="174"
+					title="Sample id: 174"></button><button class="module" data-id="175"
+					title="Sample id: 175"></button><button class="module" data-id="176"
+					title="Sample id: 176"></button><button class="module" data-id="177"
+					title="Sample id: 177"></button><button class="module" data-id="178"
+					title="Sample id: 178"></button><button class="module" data-id="179"
+					title="Sample id: 179"></button><button class="module" data-id="180" title="Sample id: 180"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #444444; --set-border-color: #FFFFFF;">
+			<h2 title="Snotty Day - Snotty Day" class="title">21 <span>Snotty Day</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/21.gif"
+				title="Snotty Day - Snotty Day" class="set">
+			<div class="module-container"><button class="module" data-id="181" title="Sample id: 181"></button><button
+					class="module" data-id="182" title="Sample id: 182"></button><button class="module" data-id="183"
+					title="Sample id: 183"></button><button class="module" data-id="184"
+					title="Sample id: 184"></button><button class="module" data-id="185"
+					title="Sample id: 185"></button><button class="module" data-id="186"
+					title="Sample id: 186"></button><button class="module" data-id="187"
+					title="Sample id: 187"></button><button class="module" data-id="188"
+					title="Sample id: 188"></button><button class="module" data-id="189" title="Sample id: 189"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #66CCFF; --set-border-color: #000000;">
+			<h2 title="A Day In Park - A Day In Park" class="title">22 <span>A Day In Park</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/22.gif"
+				title="A Day In Park - A Day In Park" class="set">
+			<div class="module-container"><button class="module" data-id="190" title="Sample id: 190"></button><button
+					class="module" data-id="191" title="Sample id: 191"></button><button class="module" data-id="192"
+					title="Sample id: 192"></button><button class="module" data-id="193"
+					title="Sample id: 193"></button><button class="module" data-id="194"
+					title="Sample id: 194"></button><button class="module" data-id="195"
+					title="Sample id: 195"></button><button class="module" data-id="196"
+					title="Sample id: 196"></button><button class="module" data-id="197"
+					title="Sample id: 197"></button><button class="module" data-id="198" title="Sample id: 198"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #666666; --set-border-color: #000000;">
+			<h2 title="Nature Nightlife - Nature Nightlife" class="title">23 <span>Nature Nightlife</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/23.gif"
+				title="Nature Nightlife - Nature Nightlife" class="set">
+			<div class="module-container"><button class="module" data-id="199" title="Sample id: 199"></button><button
+					class="module" data-id="200" title="Sample id: 200"></button><button class="module" data-id="201"
+					title="Sample id: 201"></button><button class="module" data-id="202"
+					title="Sample id: 202"></button><button class="module" data-id="203"
+					title="Sample id: 203"></button><button class="module" data-id="204"
+					title="Sample id: 204"></button><button class="module" data-id="205"
+					title="Sample id: 205"></button><button class="module" data-id="206"
+					title="Sample id: 206"></button><button class="module" data-id="207" title="Sample id: 207"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #333333; --set-border-color: #FFFFFF;">
+			<h2 title="Compu - Efeitos de computador e digitais." class="title">24 <span>Compu</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/24.gif"
+				title="Compu - Efeitos de computador e digitais." class="set">
+			<div class="module-container"><button class="module" data-id="208" title="Sample id: 208"></button><button
+					class="module" data-id="209" title="Sample id: 209"></button><button class="module" data-id="210"
+					title="Sample id: 210"></button><button class="module" data-id="211"
+					title="Sample id: 211"></button><button class="module" data-id="212"
+					title="Sample id: 212"></button><button class="module" data-id="213"
+					title="Sample id: 213"></button><button class="module" data-id="214"
+					title="Sample id: 214"></button><button class="module" data-id="215"
+					title="Sample id: 215"></button><button class="module" data-id="216" title="Sample id: 216"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FFCC66; --set-border-color: #000000;">
+			<h2 title="Party Pack - Party pack" class="title">25 <span>Party Pack</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/25.gif"
+				title="Party Pack - Party pack" class="set">
+			<div class="module-container"><button class="module" data-id="217" title="Sample id: 217"></button><button
+					class="module" data-id="218" title="Sample id: 218"></button><button class="module" data-id="219"
+					title="Sample id: 219"></button><button class="module" data-id="220"
+					title="Sample id: 220"></button><button class="module" data-id="221"
+					title="Sample id: 221"></button><button class="module" data-id="222"
+					title="Sample id: 222"></button><button class="module" data-id="223"
+					title="Sample id: 223"></button><button class="module" data-id="224"
+					title="Sample id: 224"></button><button class="module" data-id="225" title="Sample id: 225"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #CC33CC; --set-border-color: #000000;">
+			<h2 title="Bhangra Mangra - Ritmos Indianos." class="title">26 <span>Bhangra Mangra</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/26.gif"
+				title="Bhangra Mangra - Ritmos Indianos." class="set">
+			<div class="module-container"><button class="module" data-id="226" title="Sample id: 226"></button><button
+					class="module" data-id="227" title="Sample id: 227"></button><button class="module" data-id="228"
+					title="Sample id: 228"></button><button class="module" data-id="229"
+					title="Sample id: 229"></button><button class="module" data-id="230"
+					title="Sample id: 230"></button><button class="module" data-id="231"
+					title="Sample id: 231"></button><button class="module" data-id="232"
+					title="Sample id: 232"></button><button class="module" data-id="233"
+					title="Sample id: 233"></button><button class="module" data-id="234" title="Sample id: 234"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FFCC00; --set-border-color: #000000;">
+			<h2 title="Rasta Santa Mix - Rastaaaaaaaa" class="title">27 <span>Rasta Santa Mix</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/27.gif"
+				title="Rasta Santa Mix - Rastaaaaaaaa" class="set">
+			<div class="module-container"><button class="module" data-id="235" title="Sample id: 235"></button><button
+					class="module" data-id="236" title="Sample id: 236"></button><button class="module" data-id="237"
+					title="Sample id: 237"></button><button class="module" data-id="238"
+					title="Sample id: 238"></button><button class="module" data-id="239"
+					title="Sample id: 239"></button><button class="module" data-id="240"
+					title="Sample id: 240"></button><button class="module" data-id="241"
+					title="Sample id: 241"></button><button class="module" data-id="242"
+					title="Sample id: 242"></button><button class="module" data-id="243" title="Sample id: 243"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FF3300; --set-border-color: #000000;">
+			<h2 title="Metal - Pesado e sujo" class="title">28 <span>Metal</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/28.gif"
+				title="Metal - Pesado e sujo" class="set">
+			<div class="module-container"><button class="module" data-id="244" title="Sample id: 244"></button><button
+					class="module" data-id="245" title="Sample id: 245"></button><button class="module" data-id="246"
+					title="Sample id: 246"></button><button class="module" data-id="247"
+					title="Sample id: 247"></button><button class="module" data-id="248"
+					title="Sample id: 248"></button><button class="module" data-id="249"
+					title="Sample id: 249"></button><button class="module" data-id="250"
+					title="Sample id: 250"></button><button class="module" data-id="251"
+					title="Sample id: 251"></button><button class="module" data-id="252" title="Sample id: 252"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #003366; --set-border-color: #FFFFFF;">
+			<h2 title="Festa no Apê - Pode aparecer" class="title">29 <span>Festa no Apê</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/29.gif"
+				title="Festa no Apê - Pode aparecer" class="set">
+			<div class="module-container"><button class="module" data-id="253" title="Sample id: 253"></button><button
+					class="module" data-id="254" title="Sample id: 254"></button><button class="module" data-id="255"
+					title="Sample id: 255"></button><button class="module" data-id="256"
+					title="Sample id: 256"></button><button class="module" data-id="257"
+					title="Sample id: 257"></button><button class="module" data-id="258"
+					title="Sample id: 258"></button><button class="module" data-id="259"
+					title="Sample id: 259"></button><button class="module" data-id="260"
+					title="Sample id: 260"></button><button class="module" data-id="261" title="Sample id: 261"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FFCCFF; --set-border-color: #000000;">
+			<h2 title="Cartucho Melódico - Estão tocando a nossa canção..." class="title">30 <span>Cartucho Melódico</span>
+			</h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/30.gif"
+				title="Cartucho Melódico - Estão tocando a nossa canção..." class="set">
+			<div class="module-container"><button class="module" data-id="262" title="Sample id: 262"></button><button
+					class="module" data-id="263" title="Sample id: 263"></button><button class="module" data-id="264"
+					title="Sample id: 264"></button><button class="module" data-id="265"
+					title="Sample id: 265"></button><button class="module" data-id="266"
+					title="Sample id: 266"></button><button class="module" data-id="267"
+					title="Sample id: 267"></button><button class="module" data-id="268"
+					title="Sample id: 268"></button><button class="module" data-id="269"
+					title="Sample id: 269"></button><button class="module" data-id="270" title="Sample id: 270"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #663300; --set-border-color: #FFFFFF;">
+			<h2 title="DJ Balada - Solte suas feras" class="title">31 <span>DJ Balada</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/31.gif"
+				title="DJ Balada - Solte suas feras" class="set">
+			<div class="module-container"><button class="module" data-id="271" title="Sample id: 271"></button><button
+					class="module" data-id="272" title="Sample id: 272"></button><button class="module" data-id="273"
+					title="Sample id: 273"></button><button class="module" data-id="274"
+					title="Sample id: 274"></button><button class="module" data-id="275"
+					title="Sample id: 275"></button><button class="module" data-id="276"
+					title="Sample id: 276"></button><button class="module" data-id="277"
+					title="Sample id: 277"></button><button class="module" data-id="278"
+					title="Sample id: 278"></button><button class="module" data-id="279" title="Sample id: 279"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #000000; --set-border-color: #FFFFFF;">
+			<h2 title="Pianinho - Para dedilhar" class="title">32 <span>Pianinho</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/32.gif"
+				title="Pianinho - Para dedilhar" class="set">
+			<div class="module-container"><button class="module" data-id="280" title="Sample id: 280"></button><button
+					class="module" data-id="281" title="Sample id: 281"></button><button class="module" data-id="282"
+					title="Sample id: 282"></button><button class="module" data-id="283"
+					title="Sample id: 283"></button><button class="module" data-id="284"
+					title="Sample id: 284"></button><button class="module" data-id="285"
+					title="Sample id: 285"></button><button class="module" data-id="286"
+					title="Sample id: 286"></button><button class="module" data-id="287"
+					title="Sample id: 287"></button><button class="module" data-id="288" title="Sample id: 288"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #666666; --set-border-color: #000000;">
+			<h2 title="Yngvie Van Halen - Yngvie Van Halen" class="title">33 <span>Yngvie Van Halen</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/33.gif"
+				title="Yngvie Van Halen - Yngvie Van Halen" class="set">
+			<div class="module-container"><button class="module" data-id="289" title="Sample id: 289"></button><button
+					class="module" data-id="290" title="Sample id: 290"></button><button class="module" data-id="291"
+					title="Sample id: 291"></button><button class="module" data-id="292"
+					title="Sample id: 292"></button><button class="module" data-id="293"
+					title="Sample id: 293"></button><button class="module" data-id="294"
+					title="Sample id: 294"></button><button class="module" data-id="295"
+					title="Sample id: 295"></button><button class="module" data-id="296"
+					title="Sample id: 296"></button><button class="module" data-id="297" title="Sample id: 297"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #444444; --set-border-color: #FFFFFF;">
+			<h2 title="Rockin' riffs - Rockin' riffs" class="title">34 <span>Rockin' riffs</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/34.gif"
+				title="Rockin' riffs - Rockin' riffs" class="set">
+			<div class="module-container"><button class="module" data-id="298" title="Sample id: 298"></button><button
+					class="module" data-id="299" title="Sample id: 299"></button><button class="module" data-id="300"
+					title="Sample id: 300"></button><button class="module" data-id="301"
+					title="Sample id: 301"></button><button class="module" data-id="302"
+					title="Sample id: 302"></button><button class="module" data-id="303"
+					title="Sample id: 303"></button><button class="module" data-id="304"
+					title="Sample id: 304"></button><button class="module" data-id="305"
+					title="Sample id: 305"></button><button class="module" data-id="306" title="Sample id: 306"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #99CC66; --set-border-color: #000000;">
+			<h2 title="Festa Funk - Cada um no seu quadrado" class="title">35 <span>Festa Funk</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/35.gif"
+				title="Festa Funk - Cada um no seu quadrado" class="set">
+			<div class="module-container"><button class="module" data-id="307" title="Sample id: 307"></button><button
+					class="module" data-id="308" title="Sample id: 308"></button><button class="module" data-id="309"
+					title="Sample id: 309"></button><button class="module" data-id="310"
+					title="Sample id: 310"></button><button class="module" data-id="311"
+					title="Sample id: 311"></button><button class="module" data-id="312"
+					title="Sample id: 312"></button><button class="module" data-id="313"
+					title="Sample id: 313"></button><button class="module" data-id="314"
+					title="Sample id: 314"></button><button class="module" data-id="315" title="Sample id: 315"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FFCC66; --set-border-color: #000000;">
+			<h2 title="Bom Balanço - O som dos Grandes Conjuntos" class="title">36 <span>Bom Balanço</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/36.gif"
+				title="Bom Balanço - O som dos Grandes Conjuntos" class="set">
+			<div class="module-container"><button class="module" data-id="316" title="Sample id: 316"></button><button
+					class="module" data-id="317" title="Sample id: 317"></button><button class="module" data-id="318"
+					title="Sample id: 318"></button><button class="module" data-id="319"
+					title="Sample id: 319"></button><button class="module" data-id="320"
+					title="Sample id: 320"></button><button class="module" data-id="321"
+					title="Sample id: 321"></button><button class="module" data-id="322"
+					title="Sample id: 322"></button><button class="module" data-id="323"
+					title="Sample id: 323"></button><button class="module" data-id="324" title="Sample id: 324"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #EEEEEE; --set-border-color: #000000;">
+			<h2 title="Música de Cinema - Para ouvir comendo pipoca" class="title">37 <span>Música de Cinema</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/37.gif"
+				title="Música de Cinema - Para ouvir comendo pipoca" class="set">
+			<div class="module-container"><button class="module" data-id="325" title="Sample id: 325"></button><button
+					class="module" data-id="326" title="Sample id: 326"></button><button class="module" data-id="327"
+					title="Sample id: 327"></button><button class="module" data-id="328"
+					title="Sample id: 328"></button><button class="module" data-id="329"
+					title="Sample id: 329"></button><button class="module" data-id="330"
+					title="Sample id: 330"></button><button class="module" data-id="331"
+					title="Sample id: 331"></button><button class="module" data-id="332"
+					title="Sample id: 332"></button><button class="module" data-id="333" title="Sample id: 333"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #444444; --set-border-color: #FFFFFF;">
+			<h2 title="Highway to Habbo - Highway to Habbo" class="title">38 <span>Highway to Habbo</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/38.gif"
+				title="Highway to Habbo - Highway to Habbo" class="set">
+			<div class="module-container"><button class="module" data-id="334" title="Sample id: 334"></button><button
+					class="module" data-id="335" title="Sample id: 335"></button><button class="module" data-id="336"
+					title="Sample id: 336"></button><button class="module" data-id="337"
+					title="Sample id: 337"></button><button class="module" data-id="338"
+					title="Sample id: 338"></button><button class="module" data-id="339"
+					title="Sample id: 339"></button><button class="module" data-id="340"
+					title="Sample id: 340"></button><button class="module" data-id="341"
+					title="Sample id: 341"></button><button class="module" data-id="342" title="Sample id: 342"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #99CCCC; --set-border-color: #000000;">
+			<h2 title="Iron Maid - Iron Maid" class="title">39 <span>Iron Maid</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/39.gif"
+				title="Iron Maid - Iron Maid" class="set">
+			<div class="module-container"><button class="module" data-id="343" title="Sample id: 343"></button><button
+					class="module" data-id="344" title="Sample id: 344"></button><button class="module" data-id="345"
+					title="Sample id: 345"></button><button class="module" data-id="346"
+					title="Sample id: 346"></button><button class="module" data-id="347"
+					title="Sample id: 347"></button><button class="module" data-id="348"
+					title="Sample id: 348"></button><button class="module" data-id="349"
+					title="Sample id: 349"></button><button class="module" data-id="350"
+					title="Sample id: 350"></button><button class="module" data-id="351" title="Sample id: 351"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #006633; --set-border-color: #FFFFFF;">
+			<h2 title="Pixels On The Water - Pixels On The Water" class="title">40 <span>Pixels On The Water</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/40.gif"
+				title="Pixels On The Water - Pixels On The Water" class="set">
+			<div class="module-container"><button class="module" data-id="352" title="Sample id: 352"></button><button
+					class="module" data-id="353" title="Sample id: 353"></button><button class="module" data-id="354"
+					title="Sample id: 354"></button><button class="module" data-id="355"
+					title="Sample id: 355"></button><button class="module" data-id="356"
+					title="Sample id: 356"></button><button class="module" data-id="357"
+					title="Sample id: 357"></button><button class="module" data-id="358"
+					title="Sample id: 358"></button><button class="module" data-id="359"
+					title="Sample id: 359"></button><button class="module" data-id="360" title="Sample id: 360"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #444444; --set-border-color: #FFFFFF;">
+			<h2 title="Sympathy for the coder - Sympathy for the coder" class="title">41 <span>Sympathy for the coder</span>
+			</h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/41.gif"
+				title="Sympathy for the coder - Sympathy for the coder" class="set">
+			<div class="module-container"><button class="module" data-id="361" title="Sample id: 361"></button><button
+					class="module" data-id="362" title="Sample id: 362"></button><button class="module" data-id="363"
+					title="Sample id: 363"></button><button class="module" data-id="364"
+					title="Sample id: 364"></button><button class="module" data-id="365"
+					title="Sample id: 365"></button><button class="module" data-id="366"
+					title="Sample id: 366"></button><button class="module" data-id="367"
+					title="Sample id: 367"></button><button class="module" data-id="368"
+					title="Sample id: 368"></button><button class="module" data-id="369" title="Sample id: 369"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #444444; --set-border-color: #FFFFFF;">
+			<h2 title="Snouthill Horror - Snouthill Horror" class="title">42 <span>Snouthill Horror</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/42.gif"
+				title="Snouthill Horror - Snouthill Horror" class="set">
+			<div class="module-container"><button class="module" data-id="370" title="Sample id: 370"></button><button
+					class="module" data-id="371" title="Sample id: 371"></button><button class="module" data-id="372"
+					title="Sample id: 372"></button><button class="module" data-id="373"
+					title="Sample id: 373"></button><button class="module" data-id="374"
+					title="Sample id: 374"></button><button class="module" data-id="375"
+					title="Sample id: 375"></button><button class="module" data-id="376"
+					title="Sample id: 376"></button><button class="module" data-id="377"
+					title="Sample id: 377"></button><button class="module" data-id="378" title="Sample id: 378"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #333333; --set-border-color: #FFFFFF;">
+			<h2 title="Silence of the Moderators - Silence of the Moderators" class="title">43 <span>Silence of the
+					Moderators</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/43.gif"
+				title="Silence of the Moderators - Silence of the Moderators" class="set">
+			<div class="module-container"><button class="module" data-id="379" title="Sample id: 379"></button><button
+					class="module" data-id="380" title="Sample id: 380"></button><button class="module" data-id="381"
+					title="Sample id: 381"></button><button class="module" data-id="382"
+					title="Sample id: 382"></button><button class="module" data-id="383"
+					title="Sample id: 383"></button><button class="module" data-id="384"
+					title="Sample id: 384"></button><button class="module" data-id="385"
+					title="Sample id: 385"></button><button class="module" data-id="386"
+					title="Sample id: 386"></button><button class="module" data-id="387" title="Sample id: 387"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #333333; --set-border-color: #FFFFFF;">
+			<h2 title="Ghost Story - Ghost Story" class="title">44 <span>Ghost Story</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/44.gif"
+				title="Ghost Story - Ghost Story" class="set">
+			<div class="module-container"><button class="module" data-id="388" title="Sample id: 388"></button><button
+					class="module" data-id="389" title="Sample id: 389"></button><button class="module" data-id="390"
+					title="Sample id: 390"></button><button class="module" data-id="391"
+					title="Sample id: 391"></button><button class="module" data-id="392"
+					title="Sample id: 392"></button><button class="module" data-id="393"
+					title="Sample id: 393"></button><button class="module" data-id="394"
+					title="Sample id: 394"></button><button class="module" data-id="395"
+					title="Sample id: 395"></button><button class="module" data-id="396" title="Sample id: 396"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #777777; --set-border-color: #000000;">
+			<h2 title="Conexão Berlim - Seleção musical Santa3000" class="title">45 <span>Conexão Berlim</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/45.gif"
+				title="Conexão Berlim - Seleção musical Santa3000" class="set">
+			<div class="module-container"><button class="module" data-id="397" title="Sample id: 397"></button><button
+					class="module" data-id="398" title="Sample id: 398"></button><button class="module" data-id="399"
+					title="Sample id: 399"></button><button class="module" data-id="400"
+					title="Sample id: 400"></button><button class="module" data-id="401"
+					title="Sample id: 401"></button><button class="module" data-id="402"
+					title="Sample id: 402"></button><button class="module" data-id="403"
+					title="Sample id: 403"></button><button class="module" data-id="404"
+					title="Sample id: 404"></button><button class="module" data-id="405" title="Sample id: 405"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #333366; --set-border-color: #FFFFFF;">
+			<h2 title="Sound set 46 - " class="title">46 <span>Sound set 46</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/46.gif"
+				title="Sound set 46 - " class="set">
+			<div class="module-container"><button class="module" data-id="406" title="Sample id: 406"></button><button
+					class="module" data-id="407" title="Sample id: 407"></button><button class="module" data-id="408"
+					title="Sample id: 408"></button><button class="module" data-id="409"
+					title="Sample id: 409"></button><button class="module" data-id="410"
+					title="Sample id: 410"></button><button class="module" data-id="411"
+					title="Sample id: 411"></button><button class="module" data-id="412"
+					title="Sample id: 412"></button><button class="module" data-id="413"
+					title="Sample id: 413"></button><button class="module" data-id="414" title="Sample id: 414"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #444444; --set-border-color: #FFFFFF;">
+			<h2 title="Sound set 47 - " class="title">47 <span>Sound set 47</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/47.gif"
+				title="Sound set 47 - " class="set">
+			<div class="module-container"><button class="module" data-id="415" title="Sample id: 415"></button><button
+					class="module" data-id="416" title="Sample id: 416"></button><button class="module" data-id="417"
+					title="Sample id: 417"></button><button class="module" data-id="418"
+					title="Sample id: 418"></button><button class="module" data-id="419"
+					title="Sample id: 419"></button><button class="module" data-id="420"
+					title="Sample id: 420"></button><button class="module" data-id="421"
+					title="Sample id: 421"></button><button class="module" data-id="422"
+					title="Sample id: 422"></button><button class="module" data-id="423" title="Sample id: 423"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FF9900; --set-border-color: #000000;">
+			<h2 title="Sound set 48 - " class="title">48 <span>Sound set 48</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/48.gif"
+				title="Sound set 48 - " class="set">
+			<div class="module-container"><button class="module" data-id="424" title="Sample id: 424"></button><button
+					class="module" data-id="425" title="Sample id: 425"></button><button class="module" data-id="426"
+					title="Sample id: 426"></button><button class="module" data-id="427"
+					title="Sample id: 427"></button><button class="module" data-id="428"
+					title="Sample id: 428"></button><button class="module" data-id="429"
+					title="Sample id: 429"></button><button class="module" data-id="430"
+					title="Sample id: 430"></button><button class="module" data-id="431"
+					title="Sample id: 431"></button><button class="module" data-id="432" title="Sample id: 432"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FFCC00; --set-border-color: #000000;">
+			<h2 title="Sound set 49 - " class="title">49 <span>Sound set 49</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/49.gif"
+				title="Sound set 49 - " class="set">
+			<div class="module-container"><button class="module" data-id="433" title="Sample id: 433"></button><button
+					class="module" data-id="434" title="Sample id: 434"></button><button class="module" data-id="435"
+					title="Sample id: 435"></button><button class="module" data-id="436"
+					title="Sample id: 436"></button><button class="module" data-id="437"
+					title="Sample id: 437"></button><button class="module" data-id="438"
+					title="Sample id: 438"></button><button class="module" data-id="439"
+					title="Sample id: 439"></button><button class="module" data-id="440"
+					title="Sample id: 440"></button><button class="module" data-id="441" title="Sample id: 441"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #444444; --set-border-color: #FFFFFF;">
+			<h2 title="Sound set 50 - " class="title">50 <span>Sound set 50</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/50.gif"
+				title="Sound set 50 - " class="set">
+			<div class="module-container"><button class="module" data-id="442" title="Sample id: 442"></button><button
+					class="module" data-id="443" title="Sample id: 443"></button><button class="module" data-id="444"
+					title="Sample id: 444"></button><button class="module" data-id="445"
+					title="Sample id: 445"></button><button class="module" data-id="446"
+					title="Sample id: 446"></button><button class="module" data-id="447"
+					title="Sample id: 447"></button><button class="module" data-id="448"
+					title="Sample id: 448"></button><button class="module" data-id="449"
+					title="Sample id: 449"></button><button class="module" data-id="450" title="Sample id: 450"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #EEEEEE; --set-border-color: #000000;">
+			<h2 title="Sound set 51 - " class="title">51 <span>Sound set 51</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/51.gif"
+				title="Sound set 51 - " class="set">
+			<div class="module-container"><button class="module" data-id="451" title="Sample id: 451"></button><button
+					class="module" data-id="452" title="Sample id: 452"></button><button class="module" data-id="453"
+					title="Sample id: 453"></button><button class="module" data-id="454"
+					title="Sample id: 454"></button><button class="module" data-id="455"
+					title="Sample id: 455"></button><button class="module" data-id="456"
+					title="Sample id: 456"></button><button class="module" data-id="457"
+					title="Sample id: 457"></button><button class="module" data-id="458"
+					title="Sample id: 458"></button><button class="module" data-id="459" title="Sample id: 459"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #9900FF; --set-border-color: #000000;">
+			<h2 title="Trancehouse - Seleção musical do Santa 3000" class="title">52 <span>Trancehouse</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/52.gif"
+				title="Trancehouse - Seleção musical do Santa 3000" class="set">
+			<div class="module-container"><button class="module" data-id="460" title="Sample id: 460"></button><button
+					class="module" data-id="461" title="Sample id: 461"></button><button class="module" data-id="462"
+					title="Sample id: 462"></button><button class="module" data-id="463"
+					title="Sample id: 463"></button><button class="module" data-id="464"
+					title="Sample id: 464"></button><button class="module" data-id="465"
+					title="Sample id: 465"></button><button class="module" data-id="466"
+					title="Sample id: 466"></button><button class="module" data-id="467"
+					title="Sample id: 467"></button><button class="module" data-id="468" title="Sample id: 468"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #666699; --set-border-color: #000000;">
+			<h2 title="Habbo Sagrado - Seleção de Natal 2007" class="title">53 <span>Habbo Sagrado</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/53.gif"
+				title="Habbo Sagrado - Seleção de Natal 2007" class="set">
+			<div class="module-container"><button class="module" data-id="469" title="Sample id: 469"></button><button
+					class="module" data-id="470" title="Sample id: 470"></button><button class="module" data-id="471"
+					title="Sample id: 471"></button><button class="module" data-id="472"
+					title="Sample id: 472"></button><button class="module" data-id="473"
+					title="Sample id: 473"></button><button class="module" data-id="474"
+					title="Sample id: 474"></button><button class="module" data-id="475"
+					title="Sample id: 475"></button><button class="module" data-id="476"
+					title="Sample id: 476"></button><button class="module" data-id="477" title="Sample id: 477"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #333366; --set-border-color: #FFFFFF;">
+			<h2 title="Loops da Rena - Seleção musical Natal 2007" class="title">54 <span>Loops da Rena</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/54.gif"
+				title="Loops da Rena - Seleção musical Natal 2007" class="set">
+			<div class="module-container"><button class="module" data-id="478" title="Sample id: 478"></button><button
+					class="module" data-id="479" title="Sample id: 479"></button><button class="module" data-id="480"
+					title="Sample id: 480"></button><button class="module" data-id="481"
+					title="Sample id: 481"></button><button class="module" data-id="482"
+					title="Sample id: 482"></button><button class="module" data-id="483"
+					title="Sample id: 483"></button><button class="module" data-id="484"
+					title="Sample id: 484"></button><button class="module" data-id="485"
+					title="Sample id: 485"></button><button class="module" data-id="486" title="Sample id: 486"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FFCC33; --set-border-color: #000000;">
+			<h2 title="Sound set 55 - " class="title">55 <span>Sound set 55</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/55.gif"
+				title="Sound set 55 - " class="set">
+			<div class="module-container"><button class="module" data-id="487" title="Sample id: 487"></button><button
+					class="module" data-id="488" title="Sample id: 488"></button><button class="module" data-id="489"
+					title="Sample id: 489"></button><button class="module" data-id="490"
+					title="Sample id: 490"></button><button class="module" data-id="491"
+					title="Sample id: 491"></button><button class="module" data-id="492"
+					title="Sample id: 492"></button><button class="module" data-id="493"
+					title="Sample id: 493"></button><button class="module" data-id="494"
+					title="Sample id: 494"></button><button class="module" data-id="495" title="Sample id: 495"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #FF00FF; --set-border-color: #000000;">
+			<h2 title="Sound set 56 - " class="title">56 <span>Sound set 56</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/56.gif"
+				title="Sound set 56 - " class="set">
+			<div class="module-container"><button class="module" data-id="496" title="Sample id: 496"></button><button
+					class="module" data-id="497" title="Sample id: 497"></button><button class="module" data-id="498"
+					title="Sample id: 498"></button><button class="module" data-id="499"
+					title="Sample id: 499"></button><button class="module" data-id="500"
+					title="Sample id: 500"></button><button class="module" data-id="501"
+					title="Sample id: 501"></button><button class="module" data-id="502"
+					title="Sample id: 502"></button><button class="module" data-id="503"
+					title="Sample id: 503"></button><button class="module" data-id="504" title="Sample id: 504"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #CC6600; --set-border-color: #000000;">
+			<h2 title="Sound set 57 - " class="title">57 <span>Sound set 57</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/57.gif"
+				title="Sound set 57 - " class="set">
+			<div class="module-container"><button class="module" data-id="505" title="Sample id: 505"></button><button
+					class="module" data-id="506" title="Sample id: 506"></button><button class="module" data-id="507"
+					title="Sample id: 507"></button><button class="module" data-id="508"
+					title="Sample id: 508"></button><button class="module" data-id="509"
+					title="Sample id: 509"></button><button class="module" data-id="510"
+					title="Sample id: 510"></button><button class="module" data-id="511"
+					title="Sample id: 511"></button><button class="module" data-id="512"
+					title="Sample id: 512"></button><button class="module" data-id="513" title="Sample id: 513"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #00CCCC; --set-border-color: #000000;">
+			<h2 title="Sound set 58 - " class="title">58 <span>Sound set 58</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/58.gif"
+				title="Sound set 58 - " class="set">
+			<div class="module-container"><button class="module" data-id="514" title="Sample id: 514"></button><button
+					class="module" data-id="515" title="Sample id: 515"></button><button class="module" data-id="516"
+					title="Sample id: 516"></button><button class="module" data-id="517"
+					title="Sample id: 517"></button><button class="module" data-id="518"
+					title="Sample id: 518"></button><button class="module" data-id="519"
+					title="Sample id: 519"></button><button class="module" data-id="520"
+					title="Sample id: 520"></button><button class="module" data-id="521"
+					title="Sample id: 521"></button><button class="module" data-id="522" title="Sample id: 522"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #00BB00; --set-border-color: #000000;">
+			<h2 title="Sound set 59 - " class="title">59 <span>Sound set 59</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/59.gif"
+				title="Sound set 59 - " class="set">
+			<div class="module-container"><button class="module" data-id="523" title="Sample id: 523"></button><button
+					class="module" data-id="524" title="Sample id: 524"></button><button class="module" data-id="525"
+					title="Sample id: 525"></button><button class="module" data-id="526"
+					title="Sample id: 526"></button><button class="module" data-id="527"
+					title="Sample id: 527"></button><button class="module" data-id="528"
+					title="Sample id: 528"></button><button class="module" data-id="529"
+					title="Sample id: 529"></button><button class="module" data-id="530"
+					title="Sample id: 530"></button><button class="module" data-id="531" title="Sample id: 531"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #CC9900; --set-border-color: #000000;">
+			<h2 title="Cartucho Amor Latino - **Estoy enamorado**" class="title">60 <span>Cartucho Amor Latino</span></h2>
+			<img src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/60.gif"
+				title="Cartucho Amor Latino - **Estoy enamorado**" class="set">
+			<div class="module-container"><button class="module" data-id="532" title="Sample id: 532"></button><button
+					class="module" data-id="533" title="Sample id: 533"></button><button class="module" data-id="534"
+					title="Sample id: 534"></button><button class="module" data-id="535"
+					title="Sample id: 535"></button><button class="module" data-id="536"
+					title="Sample id: 536"></button><button class="module" data-id="537"
+					title="Sample id: 537"></button><button class="module" data-id="538"
+					title="Sample id: 538"></button><button class="module" data-id="539"
+					title="Sample id: 539"></button><button class="module" data-id="540" title="Sample id: 540"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #66CCFF; --set-border-color: #000000;">
+			<h2 title="Cartucho Habborella - Perfeito para jantares à luz de velas" class="title">61 <span>Cartucho
+					Habborella</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/61.gif"
+				title="Cartucho Habborella - Perfeito para jantares à luz de velas" class="set">
+			<div class="module-container"><button class="module" data-id="541" title="Sample id: 541"></button><button
+					class="module" data-id="542" title="Sample id: 542"></button><button class="module" data-id="543"
+					title="Sample id: 543"></button><button class="module" data-id="544"
+					title="Sample id: 544"></button><button class="module" data-id="545"
+					title="Sample id: 545"></button><button class="module" data-id="546"
+					title="Sample id: 546"></button><button class="module" data-id="547"
+					title="Sample id: 547"></button><button class="module" data-id="548"
+					title="Sample id: 548"></button><button class="module" data-id="549" title="Sample id: 549"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #CCCC66; --set-border-color: #000000;">
+			<h2 title="O som do Gênio - O cara tem bom gosto" class="title">62 <span>O som do Gênio</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/62.gif"
+				title="O som do Gênio - O cara tem bom gosto" class="set">
+			<div class="module-container"><button class="module" data-id="550" title="Sample id: 550"></button><button
+					class="module" data-id="551" title="Sample id: 551"></button><button class="module" data-id="552"
+					title="Sample id: 552"></button><button class="module" data-id="553"
+					title="Sample id: 553"></button><button class="module" data-id="554"
+					title="Sample id: 554"></button><button class="module" data-id="555"
+					title="Sample id: 555"></button><button class="module" data-id="556"
+					title="Sample id: 556"></button><button class="module" data-id="557"
+					title="Sample id: 557"></button><button class="module" data-id="558" title="Sample id: 558"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #333300; --set-border-color: #FFFFFF;">
+			<h2 title="1001 Noites - Mexe a cintura" class="title">63 <span>1001 Noites</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/63.gif"
+				title="1001 Noites - Mexe a cintura" class="set">
+			<div class="module-container"><button class="module" data-id="559" title="Sample id: 559"></button><button
+					class="module" data-id="560" title="Sample id: 560"></button><button class="module" data-id="561"
+					title="Sample id: 561"></button><button class="module" data-id="562"
+					title="Sample id: 562"></button><button class="module" data-id="563"
+					title="Sample id: 563"></button><button class="module" data-id="564"
+					title="Sample id: 564"></button><button class="module" data-id="565"
+					title="Sample id: 565"></button><button class="module" data-id="566"
+					title="Sample id: 566"></button><button class="module" data-id="567" title="Sample id: 567"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #669966; --set-border-color: #000000;">
+			<h2 title="Batidas Marroquinas - Ninguém fica parado" class="title">64 <span>Batidas Marroquinas</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/64.gif"
+				title="Batidas Marroquinas - Ninguém fica parado" class="set">
+			<div class="module-container"><button class="module" data-id="568" title="Sample id: 568"></button><button
+					class="module" data-id="569" title="Sample id: 569"></button><button class="module" data-id="570"
+					title="Sample id: 570"></button><button class="module" data-id="571"
+					title="Sample id: 571"></button><button class="module" data-id="572"
+					title="Sample id: 572"></button><button class="module" data-id="573"
+					title="Sample id: 573"></button><button class="module" data-id="574"
+					title="Sample id: 574"></button><button class="module" data-id="575"
+					title="Sample id: 575"></button><button class="module" data-id="576" title="Sample id: 576"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #669900; --set-border-color: #000000;">
+			<h2 title="Sound set 65 - " class="title">65 <span>Sound set 65</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/65.gif"
+				title="Sound set 65 - " class="set">
+			<div class="module-container"><button class="module" data-id="577" title="Sample id: 577"></button><button
+					class="module" data-id="578" title="Sample id: 578"></button><button class="module" data-id="579"
+					title="Sample id: 579"></button><button class="module" data-id="580"
+					title="Sample id: 580"></button><button class="module" data-id="581"
+					title="Sample id: 581"></button><button class="module" data-id="582"
+					title="Sample id: 582"></button><button class="module" data-id="583"
+					title="Sample id: 583"></button><button class="module" data-id="584"
+					title="Sample id: 584"></button><button class="module" data-id="585" title="Sample id: 585"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #996633; --set-border-color: #000000;">
+			<h2 title="Sound set 66 - " class="title">66 <span>Sound set 66</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/66.gif"
+				title="Sound set 66 - " class="set">
+			<div class="module-container"><button class="module" data-id="586" title="Sample id: 586"></button><button
+					class="module" data-id="587" title="Sample id: 587"></button><button class="module" data-id="588"
+					title="Sample id: 588"></button><button class="module" data-id="589"
+					title="Sample id: 589"></button><button class="module" data-id="590"
+					title="Sample id: 590"></button><button class="module" data-id="591"
+					title="Sample id: 591"></button><button class="module" data-id="592"
+					title="Sample id: 592"></button><button class="module" data-id="593"
+					title="Sample id: 593"></button><button class="module" data-id="594" title="Sample id: 594"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #669900; --set-border-color: #000000;">
+			<h2 title="Sound set 67 - " class="title">67 <span>Sound set 67</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/67.gif"
+				title="Sound set 67 - " class="set">
+			<div class="module-container"><button class="module" data-id="595" title="Sample id: 595"></button><button
+					class="module" data-id="596" title="Sample id: 596"></button><button class="module" data-id="597"
+					title="Sample id: 597"></button><button class="module" data-id="598"
+					title="Sample id: 598"></button><button class="module" data-id="599"
+					title="Sample id: 599"></button><button class="module" data-id="600"
+					title="Sample id: 600"></button><button class="module" data-id="601"
+					title="Sample id: 601"></button><button class="module" data-id="602"
+					title="Sample id: 602"></button><button class="module" data-id="603" title="Sample id: 603"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #99CC33; --set-border-color: #000000;">
+			<h2 title="Sound set 68 - " class="title">68 <span>Sound set 68</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/68.gif"
+				title="Sound set 68 - " class="set">
+			<div class="module-container"><button class="module" data-id="604" title="Sample id: 604"></button><button
+					class="module" data-id="605" title="Sample id: 605"></button><button class="module" data-id="606"
+					title="Sample id: 606"></button><button class="module" data-id="607"
+					title="Sample id: 607"></button><button class="module" data-id="608"
+					title="Sample id: 608"></button><button class="module" data-id="609"
+					title="Sample id: 609"></button><button class="module" data-id="610"
+					title="Sample id: 610"></button><button class="module" data-id="611"
+					title="Sample id: 611"></button><button class="module" data-id="612" title="Sample id: 612"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #EEEEEE; --set-border-color: #000000;">
+			<h2 title="Sound set 69 - " class="title">69 <span>Sound set 69</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/69.gif"
+				title="Sound set 69 - " class="set">
+			<div class="module-container"><button class="module" data-id="613" title="Sample id: 613"></button><button
+					class="module" data-id="614" title="Sample id: 614"></button><button class="module" data-id="615"
+					title="Sample id: 615"></button><button class="module" data-id="616"
+					title="Sample id: 616"></button><button class="module" data-id="617"
+					title="Sample id: 617"></button><button class="module" data-id="618"
+					title="Sample id: 618"></button><button class="module" data-id="619"
+					title="Sample id: 619"></button><button class="module" data-id="620"
+					title="Sample id: 620"></button><button class="module" data-id="621" title="Sample id: 621"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #DD0000; --set-border-color: #000000;">
+			<h2 title="Sound set 70 - " class="title">70 <span>Sound set 70</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/70.gif"
+				title="Sound set 70 - " class="set">
+			<div class="module-container"><button class="module" data-id="622" title="Sample id: 622"></button><button
+					class="module" data-id="623" title="Sample id: 623"></button><button class="module" data-id="624"
+					title="Sample id: 624"></button><button class="module" data-id="625"
+					title="Sample id: 625"></button><button class="module" data-id="626"
+					title="Sample id: 626"></button><button class="module" data-id="627"
+					title="Sample id: 627"></button><button class="module" data-id="628"
+					title="Sample id: 628"></button><button class="module" data-id="629"
+					title="Sample id: 629"></button><button class="module" data-id="630" title="Sample id: 630"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #1263C7; --set-border-color: #000000;">
+			<h2 title="Cartucho Natal 2008 - Bate o sino pequenino..." class="title">71 <span>Cartucho Natal 2008</span>
+			</h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/71.gif"
+				title="Cartucho Natal 2008 - Bate o sino pequenino..." class="set">
+			<div class="module-container"><button class="module" data-id="631" title="Sample id: 631"></button><button
+					class="module" data-id="632" title="Sample id: 632"></button><button class="module" data-id="633"
+					title="Sample id: 633"></button><button class="module" data-id="634"
+					title="Sample id: 634"></button><button class="module" data-id="635"
+					title="Sample id: 635"></button><button class="module" data-id="636"
+					title="Sample id: 636"></button><button class="module" data-id="637"
+					title="Sample id: 637"></button><button class="module" data-id="638"
+					title="Sample id: 638"></button><button class="module" data-id="639" title="Sample id: 639"></button>
+			</div>
+		</div>
+		<div class="card" style="--set-color: #67CCD0; --set-border-color: #000000;">
+			<h2 title="Sons da roça - Para ouvir num momento de paz" class="title">72 <span>Sons da roça</span></h2><img
+				src="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/72.gif"
+				title="Sons da roça - Para ouvir num momento de paz" class="set">
+			<div class="module-container"><button class="module" data-id="640" title="Sample id: 640"></button><button
+					class="module" data-id="641" title="Sample id: 641"></button><button class="module" data-id="642"
+					title="Sample id: 642"></button><button class="module" data-id="643"
+					title="Sample id: 643"></button><button class="module" data-id="644"
+					title="Sample id: 644"></button><button class="module" data-id="645"
+					title="Sample id: 645"></button><button class="module" data-id="646"
+					title="Sample id: 646"></button><button class="module" data-id="647"
+					title="Sample id: 647"></button><button class="module" data-id="648" title="Sample id: 648"></button>
+			</div>
+		</div>
+	</main>
 	<footer>
 		<p>Made with ❤. This website <strong>is not</strong> owned or operated by Sulake Oy® and is not affiliated with or part of Habbo Hotel®.</p>
 		<p>Read more at <a href="https://www.habborator.org/trax/" target="_blank">Habborator/Trax</a> and <a href="https://github.com/Habbianos/Traxmachine" target="_blank">GitHub/Habbianos/Traxmachine</a>.</p>
