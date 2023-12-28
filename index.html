@@ -1,0 +1,320 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Livro de Sons</title>
+	<link rel="icon" href="https://raw.githubusercontent.com/Habbianos/Traxmachine/main/assets/img/disc.gif" type="image/gif">
+
+
+	<style>
+		@font-face {
+			font-family: Habbo Volter;
+			src: url('https://alynva.surge.sh/fonts/1052_class_1740_Volter.otf');
+		}
+		:focus {
+			outline: 2px auto orange;
+			outline-offset: -2px;
+		}
+		html {
+			background: url("https://traxometro.alynva.com/static/media/bg_serpentine_darkred.61bab0b3.gif");
+		}
+		body {
+			/* background: white; */
+
+			/*border: 15px solid transparent;
+			border-top-width: 9px;
+			border-left-width: 12px;
+			border-image-source: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC0AAAAtCAYAAAA6GuKaAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQtRRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvVbjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ysC4HnTrjsN/sZ8mCoNTIDtbpSFICpA/0KnGsQYMIN+qkHcAaY6addAPAClXu4vQCnI/Q0oKdfzQXwAZs/1fDDmADPIfQUwdXSpAWpJOlJnvVMtq5ZlSbubBJE8HmU6GmRyPw4TlSaqo6MukP8HwGK+2G46cq1qWXvr/DOu58vc3o8QgFh6LFpBOFTn3yqMnd/n4sZ4GQ5vYXpStN0ruNmAheuirVahvAX34y/Axk/96FpPYgAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAACGUlEQVR42uzZPUvDUBQG4PeE7kpFQVHcxFmLiuBPiOAXIoJrBQuFuCgILk4OkUIEXbt00IoYJ91FpPVPCDpZ/AU5DvaGa5qPKml7lXugQ9Lbm+ce3qQkoaOHNwAAEUEuwzC+bYvv92YGGSkUM9Nvf5tpZ9D+7JAPzTuVNMwgIn/Oq4/kBSz1tYkWWBmaHRlLBS3Pudz/tYB28ACQ8TwvNA77s0MsJpahjdeXVNDynOI4y/3El41keGinD+aHOe9U/InTgsolzymOk3cqWM0mwzNx4E5g4xaQHRnz4Rfv0XCj1+AgXsDXBijyKmUwM5i55+AgPLdVxNoAsecBzdMuvNOqVOP1BdMzcwCA+t1teDwOF0aV6HKwcltFHG+avD5IJhFBfJTsdESZfqe9YGAUKhGRln9TAEpGQ1T96RG1cgkAFpu73L8UD7WvHv8RbepOa7RGa7RGa7RGa7RG/0s0M9N5YcO/dVf8rkXHo/toy3aUi0hUNFpubOtPj38rHpbtUK1cwv31Rc+7HdPl1kyrAE8Au0DI8+mV7QJVz0oMRD/h6VWHRbWgxycmYdkO2VbBfz7cabw4lxLAbiRajooMT3sB8knfxEaCd6rP7unKFBLREtyslUs3aXdXgsbGYaf67Ab3ETNj9+Q09gC2VTClzbQWsJg0QAbLnSbm+Bew0ptcs8sXEjfS9AN0t/Bu0oDfoDuxAPcngz8HAKzG+U7fkX7aAAAAAElFTkSuQmCC);
+			border-image-repeat: repeat;
+			border-image-width: auto;
+			border-image-slice: 15 fill;*/
+
+			border-image-slice: 12 27 27 27 fill;
+			border-image-width: 12px 27px 27px 27px;
+			border-image-outset: 0px 0px 0px 0px;
+			border-image-repeat: repeat repeat;
+			border-image-source: url("data:image/png;base64,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");
+			border-style: solid;
+
+			font-family: "Habbo Volter";
+			max-width: 949px;
+			margin: 50px auto;
+			padding: 30px 50px;
+		}
+		nav {
+			position: relative;
+			color: #292929;
+			margin-bottom: 30px;
+		}
+		nav h1 {
+			width: 100%;
+			text-align: center;
+			font-size: 2em;
+			margin: 0;
+		}
+		nav select {
+			position: absolute;
+			right: 9px;
+			top: 3px;
+
+			border-image-source: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACgAAAAoCAYAAACM/rhtAAABJ2lDQ1BTTVBURS1DAAAokZWPO0vDYBRAzxcHS4UgNOj6bboUQpXimj4QQaW2HZJszYP6oEn48vno4o8QN/+A7g4ODv6ADoLg5E9wE5wcHCIEp9IznXuGy71gbDqdVtdYhUmiVX+3JV3Pl8uvVFihRpPtUZhnTq+3D5CkScx/BHy/IwDe6k6n1WUxqmGmNPADNKI4D0HYQHCpMw3iFrCCs0yDuAcsNey3QTwD5rjwGWAGhX8ApnI9H8QnYI1dzwcDwAoKtwBLx1caoJ1mU3UyPtayYdu2dKI0iOVgmut4ksu9JExVlqqRjiOguA+AyuCgN+zW2wu+Ox/X82VhX0cIQKzNylYSnquLPxXG1vy53HF6AzsvsHRdtugBHquwPirbxh3UmvB0+At5eE3p225Z7wAAAAlwSFlzAAALEwAACxMBAJqcGAAABe1pVFh0WE1MOmNvbS5hZG9iZS54bXAAAAAAADw/eHBhY2tldCBiZWdpbj0i77u/IiBpZD0iVzVNME1wQ2VoaUh6cmVTek5UY3prYzlkIj8+IDx4OnhtcG1ldGEgeG1sbnM6eD0iYWRvYmU6bnM6bWV0YS8iIHg6eG1wdGs9IkFkb2JlIFhNUCBDb3JlIDUuNi1jMTQ4IDc5LjE2NDAzNiwgMjAxOS8wOC8xMy0wMTowNjo1NyAgICAgICAgIj4gPHJkZjpSREYgeG1sbnM6cmRmPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5LzAyLzIyLXJkZi1zeW50YXgtbnMjIj4gPHJkZjpEZXNjcmlwdGlvbiByZGY6YWJvdXQ9IiIgeG1sbnM6eG1wPSJodHRwOi8vbnMuYWRvYmUuY29tL3hhcC8xLjAvIiB4bWxuczp4bXBNTT0iaHR0cDovL25zLmFkb2JlLmNvbS94YXAvMS4wL21tLyIgeG1sbnM6c3RFdnQ9Imh0dHA6Ly9ucy5hZG9iZS5jb20veGFwLzEuMC9zVHlwZS9SZXNvdXJjZUV2ZW50IyIgeG1sbnM6ZGM9Imh0dHA6Ly9wdXJsLm9yZy9kYy9lbGVtZW50cy8xLjEvIiB4bWxuczpwaG90b3Nob3A9Imh0dHA6Ly9ucy5hZG9iZS5jb20vcGhvdG9zaG9wLzEuMC8iIHhtcDpDcmVhdG9yVG9vbD0iQWRvYmUgUGhvdG9zaG9wIDIxLjAgKE1hY2ludG9zaCkiIHhtcDpDcmVhdGVEYXRlPSIyMDIzLTA1LTE3VDEyOjE2OjIzLTA0OjAwIiB4bXA6TWV0YWRhdGFEYXRlPSIyMDIzLTA1LTE3VDEyOjE2OjIzLTA0OjAwIiB4bXA6TW9kaWZ5RGF0ZT0iMjAyMy0wNS0xN1QxMjoxNjoyMy0wNDowMCIgeG1wTU06SW5zdGFuY2VJRD0ieG1wLmlpZDpmZTFjZWMzMC1iNDBkLTQ3ODUtYjdkOC02ODZlZDgwYjBmNWMiIHhtcE1NOkRvY3VtZW50SUQ9ImFkb2JlOmRvY2lkOnBob3Rvc2hvcDpkNTY5OWM2Yi05NWYwLTg2NDQtYmJlZi1kNWNiZmNmMjE3NTMiIHhtcE1NOk9yaWdpbmFsRG9jdW1lbnRJRD0ieG1wLmRpZDo2MmRlNmJlMy1jYmI1LTQzNmMtOGU5MC1kYjJiZDdlMDViMTMiIGRjOmZvcm1hdD0iaW1hZ2UvcG5nIiBwaG90b3Nob3A6Q29sb3JNb2RlPSIzIiBwaG90b3Nob3A6SUNDUHJvZmlsZT0iU01QVEUtQyI+IDx4bXBNTTpIaXN0b3J5PiA8cmRmOlNlcT4gPHJkZjpsaSBzdEV2dDphY3Rpb249ImNyZWF0ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6NjJkZTZiZTMtY2JiNS00MzZjLThlOTAtZGIyYmQ3ZTA1YjEzIiBzdEV2dDp3aGVuPSIyMDIzLTA1LTE3VDEyOjE2OjIzLTA0OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjEuMCAoTWFjaW50b3NoKSIvPiA8cmRmOmxpIHN0RXZ0OmFjdGlvbj0ic2F2ZWQiIHN0RXZ0Omluc3RhbmNlSUQ9InhtcC5paWQ6ZmUxY2VjMzAtYjQwZC00Nzg1LWI3ZDgtNjg2ZWQ4MGIwZjVjIiBzdEV2dDp3aGVuPSIyMDIzLTA1LTE3VDEyOjE2OjIzLTA0OjAwIiBzdEV2dDpzb2Z0d2FyZUFnZW50PSJBZG9iZSBQaG90b3Nob3AgMjEuMCAoTWFjaW50b3NoKSIgc3RFdnQ6Y2hhbmdlZD0iLyIvPiA8L3JkZjpTZXE+IDwveG1wTU06SGlzdG9yeT4gPC9yZGY6RGVzY3JpcHRpb24+IDwvcmRmOlJERj4gPC94OnhtcG1ldGE+IDw/eHBhY2tldCBlbmQ9InIiPz4fih/DAAAA/0lEQVRYhe2ZMY7EIAxFP6OcZaex738Q02wu86cJjJch2yCBR+JJFEGW/PRBFE4iiRZV/dycgJmldu/wH0Us5/ycJdXr70VTSVBVuUqsRUR+qyRJiAgB/Li1iuogIiSJR6fonCz1f+8mvQrJ6ctRU+wl2BZPo9fXC553RTO5+tej7iYYiQcAiMjZuQfLuF6WE7gEc85I6eMRX0rOGcA7wTDpFYrPd9zByGzBUbbgKFtwlC04yhYcZQuOsgVH2YKjhBVUVQCBBQvfI1gijYB3iZ/gNSgkECNF50AzS8ddgZlN1LoP588IGECU+QfLCLjeQXfUK2cghJMDXIKeSL8hXhi2yim04rQ+AAAAAElFTkSuQmCC);
+			border-image-slice: 6 fill;
+			border-image-width: 6px;
+			text-align: center;
+			outline: none;
+			font-size: .875rem;
+			line-height: 1.25rem;
+			padding: 0.25rem;
+			border-radius: 7px;
+		}
+		main {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(146px, 1fr));
+			place-items: center;
+			gap: 10px;
+
+			/* border: 3px solid transparent;
+			border-image-source: url(data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAABIAAAASCAYAAABWzo5XAAAACXBIWXMAAAsTAAALEwEAmpwYAAABNmlDQ1BQaG90b3Nob3AgSUNDIHByb2ZpbGUAAHjarY6xSsNQFEDPi6LiUCsEcXB4kygotupgxqQtRRCs1SHJ1qShSmkSXl7VfoSjWwcXd7/AyVFwUPwC/0Bx6uAQIYODCJ7p3MPlcsGo2HWnYZRhEGvVbjrS9Xw5+8QMUwDQCbPUbrUOAOIkjvjB5ysC4HnTrjsN/sZ8mCoNTIDtbpSFICpA/0KnGsQYMIN+qkHcAaY6addAPAClXu4vQCnI/Q0oKdfzQXwAZs/1fDDmADPIfQUwdXSpAWpJOlJnvVMtq5ZlSbubBJE8HmU6GmRyPw4TlSaqo6MukP8HwGK+2G46cq1qWXvr/DOu58vc3o8QgFh6LFpBOFTn3yqMnd/n4sZ4GQ5vYXpStN0ruNmAheuirVahvAX34y/Axk/96FpPYgAAACBjSFJNAAB6JQAAgIMAAPn/AACA6AAAUggAARVYAAA6lwAAF2/XWh+QAAAAlUlEQVR42uyUyxHDIAxE93nSALWaMkytlKBckAcrOI4/x+xRwzxWX8xMUcBnsMnMGMVfI0CtdY+zvolA3BFg3wBRKaUNbLoCcdd9CSbdFDADQtJpNzFFSdx21DQ/BdIf9BsotxZebX12UHnAUPHUTrvq3axLC0jSLGk52v7uQ4eUCHKYHLij3Kc0OiObkT+qSTh2eg8Awxc9J4mIjwUAAAAASUVORK5CYII=);
+			border-image-repeat: repeat;
+			border-image-width: auto;
+			border-image-slice: 6 fill;
+			padding: 10px 9px 10px 8px; */
+		}
+		.card {
+			width: 146px;
+			height: 113px;
+			position: relative;
+			background-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAJIAAABxCAYAAAA+q/qiAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAARCSURBVHgB7d2xaxNhGMfxNyX/gFsVhSI4lS4WHHQTJ6EdqruO4uQg6CTBScG5OtbFSTu04CRuOgh1Kd0LCnbzT4h9Lnni5cx5ufd+afP2vp8lTU0eMO8v7+Xyvk+vE/7VD0C1TtmdLECHh4cBqLK0tOQ/ZhlaGN7pW4AIEaZlWen1evZjNgF1Jz1of38/AGVWVlbC1tbW2O9sWurnZyIPkT0YKPJ87O3tjX5nM1N30oNMMXGAWV1dHd3mw9StegIwjYUACBAkSBAkSBAkSBAkSBAkSBAkSBAkSBAkSBAkSJQukbBoi0nKdoaUBolFW0xStgY7FiSbhTxxLNrif/Ir/2YsSMxCiDX6sE2I0ET3+trd/EZuIEp2aHv0+l04+PI5AHUt37gZvn3c/vsZ6cLlKwGIxReSkCBIkCBIkCBIkCBIkCBIkOiGlnv7/EmIde/Zy8rHpF5/Wq0Nkg/Aqw+fQqzHd25lt5MGJPX6dbUySDYIPgA7uzvh58H3UNfF5aujGjYg+cFIvX6MzvFaW//a7Y3w+9eP0AY+CLEDUGQDsr62PhqM1OvXde78pfElkrbJD4K9mLE1sjrHAzHp31KuX1erztry72YXOwj551o9q3sW6sdq5em/v5ubDIKzGsVDTOr1Y/A9EiQIEiQIEiQIEiQIEiQIEiQIEiQIEiQIEiQIEiQIEiQIEiRaGSTFYqezBc9ivdTrx5DsR2qy/aCuJjv57Lm2gcu2TGwO9+IoXsT8xrDU68dqHKT8ts+ToNgWanz7ROxgVG3lSL1+XY222nqINl/0wkl5+LTXOEyqPc/rw52Fs9pTfVr16/CtttFBOo0QOVWYDF0kzT4uzGTP9uLiYkiFv3j+YjapcRbr1yULUkohMsxI9LU1Rl+bvq+tdUFS9YXZczeHZ0xWT913dlr1Y9HXFuhro6+tJvraquvHoq+tIfraBli0hQRBggRBggRBggRBggRBggRBggRBggRBggRBggRBggRBggR9bQ3R1zbQqiB5X5h3TyhWvU2x7yzl+rFae2jzd2HsYFT1lKVev67W7ZDMd6vazkB1X1jq9WNJGiTN9tabMGsb9x9kt4r/OF0kc9TXNvbuOCGqlm362ua0r+3o6Ci7TaW/jRlpzvraxv5Cxgzbt+2wppqN6Gub4+u1zfqvkqhDxPXaJtevS9777zPTrCiP54a+Nm1fm/T0Xz3YarPoC7OB8L4wP8SnXD92DOlra4i+tgEWbSFBkCBBkCBBkCBBkCBBkCBBkCBBkCBBkCBBkCBBkCBBkCBBX1tD9LUN0NcmQF8bfW30tc3D9dpSxfXa5uh6bamji0Tb19baILkml02YZgBSr1+FIEHCg8T3SJAgSJBY+Lr7vmNTk01RQCxmJETzz0c2GWVBYlZCU538HT+DM5zFoYxPOD4b2c+d4oMsTHbrgQKKLEDGQ2Q6ZQ/2QAFF+QC5P6hpm8F91lteAAAAAElFTkSuQmCC');
+		}
+		.set {
+			position: absolute;
+			left: 16px;
+			top: 53px;
+		}
+		.title {
+			margin: 0;
+			text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;
+			font-size: 6pt;
+			line-height: 23px;
+			position: absolute;
+			left: 6px;
+			top: 1px;
+			color: white;
+			width: 134px;
+			text-align: center;
+			white-space: nowrap;
+			overflow: hidden;
+			text-overflow: ellipsis;
+		}
+		.title span {
+			color: var(--set-color, "white")
+		}
+		.module-container {
+			display: flex;
+			width: calc(calc(3 * 21px) + 6px);
+			flex-wrap: wrap;
+			position: absolute;
+			left: 61px;
+			top: 33px;
+			gap: 3px;
+			--mask: url(data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNjkiIGhlaWdodD0iNjkiIHZpZXdCb3g9IjAgMCA2OSA2OSIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTUwIDY3SDQ5VjY1SDQ4VjUySDQ5VjUwSDUwVjQ5SDUyVjQ4SDY1VjQ5SDY3VjUwSDY4VjUySDY5VjY1SDY4VjY3SDY3VjY4SDY1VjY5SDUyVjY4SDUwVjY3WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTI2IDY3SDI1VjY1SDI0VjUySDI1VjUwSDI2VjQ5SDI4VjQ4SDQxVjQ5SDQzVjUwSDQ0VjUySDQ1VjY1SDQ0VjY3SDQzVjY4SDQxVjY5SDI4VjY4SDI2VjY3WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTIgNjdIMVY2NUgwVjUySDFWNTBIMlY0OUg0VjQ4SDE3VjQ5SDE5VjUwSDIwVjUySDIxVjY1SDIwVjY3SDE5VjY4SDE3VjY5SDRWNjhIMlY2N1oiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik01MCA0M0g0OVY0MUg0OFYyOEg0OVYyNkg1MFYyNUg1MlYyNEg2NVYyNUg2N1YyNkg2OFYyOEg2OVY0MUg2OFY0M0g2N1Y0NEg2NVY0NUg1MlY0NEg1MFY0M1oiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0yNiA0M0gyNVY0MUgyNFYyOEgyNVYyNkgyNlYyNUgyOFYyNEg0MVYyNUg0M1YyNkg0NFYyOEg0NVY0MUg0NFY0M0g0M1Y0NEg0MVY0NUgyOFY0NEgyNlY0M1oiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0yIDQzSDFWNDFIMFYyOEgxVjI2SDJWMjVINFYyNEgxN1YyNUgxOVYyNkgyMFYyOEgyMVY0MUgyMFY0M0gxOVY0NEgxN1Y0NUg0VjQ0SDJWNDNaIiBmaWxsPSJibGFjayIvPgo8cGF0aCBkPSJNNTAgMTlINDlWMTdINDhWNEg0OVYySDUwVjFINTJWMEg2NVYxSDY3VjJINjhWNEg2OVYxN0g2OFYxOUg2N1YyMEg2NVYyMUg1MlYyMEg1MFYxOVoiIGZpbGw9ImJsYWNrIi8+CjxwYXRoIGQ9Ik0yNiAxOUgyNVYxN0gyNFY0SDI1VjJIMjZWMUgyOFYwSDQxVjFINDNWMkg0NFY0SDQ1VjE3SDQ0VjE5SDQzVjIwSDQxVjIxSDI4VjIwSDI2VjE5WiIgZmlsbD0iYmxhY2siLz4KPHBhdGggZD0iTTIgMTlIMVYxN0gwVjRIMVYySDJWMUg0VjBIMTdWMUgxOVYySDIwVjRIMjFWMTdIMjBWMTlIMTlWMjBIMTdWMjFINFYyMEgyVjE5WiIgZmlsbD0iYmxhY2siLz4KPC9zdmc+Cg==);
+			-webkit-mask-image: var(--mask);
+			mask-image: var(--mask);
+			background-color: var(--set-color, "black");
+		}
+		.module {
+			--module-bg-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAD8AAAAVBAMAAAADRiu8AAAAAXNSR0IB2cksfwAAAAlwSFlzAAALEwAACxMBAJqcGAAAACFQTFRFAAAAAAAA/f39////AAAAAAAAV1dXAAAAAAAAAAAAAAAA8F/dpwAAAAt0Uk5TAP9vnCSUe2tK6u1TrfuTAAAArklEQVR4nOXSvwqDMBDH8d8tnS/VIu1UfAV9hICzQ6Bjs2Tv5Nwtj93k8kcDhT5Av1PwPijEA6AkBkDpGE6Hh1CjRAzqppgOQhlpDYLGEZJFN806tjAZ42NmjQAVpLkAn3oD53sGTk06g9flkYHnHZwq0C1ABfMO/B+D6w/gbmW+NIArUAdwuGoqX7DoM9iYCgh/k9xT5s5i2NK8BVBOsuFlwybFjcpzbtfv205+AGBllsEfmWyYAAAAAElFTkSuQmCC');
+			--module-bg-x: 0px;
+			--module-bg-y: 0px;
+			--module-type-image: url('data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAKsAAAATCAYAAADvcf0BAAAABmJLR0QA/wD/AP+gvaeTAAAACXBIWXMAAAsTAAALEwEAmpwYAAAAB3RJTUUH3wQKCwolCD+R0gAAAxRJREFUaN7tWdFu2zAMPLn5xDzHIt31o4pEdvcP/bml4u3BieMZaVNJ3hYgOkAvAXyhyDN1poCKioqKioqKB4WrKfgTIkJHIAz9f8tNK54NHBo4HPpQa5RSvPO6x9jW5WsZ+Ys0Un0e95irliJd9vNzSOd57/nOqcM1Td3S2eZWYCGE+c8EgL5P6zpfBZDKNec8xcZcjjm8dAxhf9mos2QO1Wfu969wzgEwOHww9G+JsRnA8f8dgLDvwQgOw5C1R+89GzzBGoMj4GAgGrgmIhx+utJ859Rh9sykqYXWvl/T5du9RMqbtCbXp92nsMN6bUciI8lIkZZ5PDJSkGQ0dqJ5PH5Hr3IJiTGrw44c8RLTAl5eWJLvnDrc0kNyTa8FcS9i/YwvV7Ai3SRUY6SqMl/0cuIZl7RlR7iIXMjIZGtxjmeUa5xyZWbFdczVxPy5rziv8W1utGioKrbbLVR1atO5x6+q4krLzzn6J76SmNQL92EPAnAO6PQFfcEHzRB618ARRlgDDG9DkT0Z92IMh2GyBqnxPNExOqIxgA6AEWgc6AxDgkU55ZWLfE91yLVi5xrOtfEZmltE2+0WACbBluLMt4ZQlzGFEL5t9r33PPSvcKeRiKpH3x+KvW8IwYWhd0NYa5qwQTwF6Zjuo0miocHcBkAD99SAdNkvz1IDJUKd6ypLF9da8/v7+2pt/7zWsBSl3nWnP6Zj0RizJwDLicKa0xPpPGkfpJE+0QaotDPPGkkeJwtg9pG837Us2LL+S30l8T2WZx193ZEfJMlW8n3m2h9+6rtTVKO4vKbxqT4zGieOUbXHiwf2O96DJory9mjTAPG7y4eMMVkUcw98FoKZZU8VRFqK3126opFtp8wVvIhQvbDtnnnp/C1L8/03mlhWLZfH9fwYL7lYWK7SLrbWcTuNeU5Hbo7QOlEeadOoKOdiQKRltFkjtGP2BcPaFwLX8l1Sh7WbzkPdYHnvaYxFN1hey/IlIrNpVSyyJf8q36VN57v5qvfOVxPfrDIZKPGqgCE64q0fao0qKioqKioqHh2/AX7fKcAo6L8NAAAAAElFTkSuQmCC');
+			--module-type-x: 1px;
+			--module-type-y: 1px;
+
+			background: var(--module-type-image) var(--module-type-x) var(--module-type-y), var(--module-bg-image) var(--module-bg-x) var(--module-bg-y);
+			width: 21px;
+			height: 21px;
+			cursor: pointer;
+			border: none;
+		}
+		.module:hover {
+			--module-bg-x: -21px;
+		}
+		.module:active {
+			--module-bg-x: -42px;
+		}
+		.module:nth-child(1) {
+			--module-type-x: 1px;
+		}
+		.module:nth-child(2) {
+			--module-type-x: -18px;
+		}
+		.module:nth-child(3) {
+			--module-type-x: -37px;
+		}
+		.module:nth-child(4) {
+			--module-type-x: -56px;
+		}
+		.module:nth-child(5) {
+			--module-type-x: -75px;
+		}
+		.module:nth-child(6) {
+			--module-type-x: -93px;
+		}
+		.module:nth-child(7) {
+			--module-type-x: -113px;
+		}
+		.module:nth-child(8) {
+			--module-type-x: -132px;
+		}
+		.module:nth-child(9) {
+			--module-type-x: -151px;
+		}
+		footer {
+			font-size: 0.7em;
+			text-align: center;
+			margin: 20px 0 10px;
+		}
+	</style>
+
+	<script>
+		const setColors = [
+			"",
+			"#CC9900", "#66CC99", "#FF6666", "#6699CC", "#444444", "#BBBBBB", "#FFCC33", "#FF99FF", "#880000",
+			"#555555", "#996633", "#CC6633", "#CCCC66", "#6699FF", "#666633", "#CC3333", "#FF3333", "#66CC00",
+			"#6699FF", "#339933", "#444444", "#66CCFF", "#666666", "#333333", "#FFCC66", "#CC33CC", "#FFCC00",
+			"#FF3300", "#003366", "#FFCCFF", "#663300", "#000000", "#666666", "#444444", "#99CC66", "#FFCC66",
+			"#EEEEEE", "#444444", "#99CCCC", "#006633", "#444444", "#444444", "#333333", "#333333", "#777777",
+			"#333366", "#444444", "#FF9900", "#FFCC00", "#444444", "#EEEEEE", "#9900FF", "#666699", "#333366",
+			"#FFCC33", "#FF00FF", "#CC6600", "#00CCCC", "#00BB00", "#CC9900", "#66CCFF", "#CCCC66", "#333300",
+			"#669966", "#669900", "#996633", "#669900", "#99CC33", "#EEEEEE", "#DD0000", "#1263C7", "#67CCD0",
+		]
+
+		const titleNames = {
+			'hhbr': "Livro de Sons",
+			'hhus': "Samples Book",
+			'hhes': "Libro de Muestras",
+			'hhnl': "Boek met Voorbeelden",
+			'hhfr': "Livre d'échantillons",
+			'hhde': "Musterbuch",
+			'hhfi': "Näytteiden Kirja",
+			'hhit': "Libro di Campioni",
+			'hhtr': "Örnek Kitap",
+			'hhdk': "Prøvebog",
+			'hhno': "Prøvebok",
+			'hhse': "Provexemplarbok",
+		}
+		window.addEventListener('load', async evt => {
+			const names = await loadNames('hhbr')
+
+			document.querySelector('h1').innerText = titleNames['hhbr']
+
+			for (let i = 1; i <= 72; i++) {
+				let container = document.createElement('div')
+				container.classList.add('card')
+				container.style.cssText = `--set-color: ${setColors[i] ?? "#000"}`
+
+				let imgUrl = `https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/${('' + i).padStart(2, '0')}.gif`
+				container.innerHTML += `<h2 title="${names[`sound_set_${i}`].name} - ${names[`sound_set_${i}`].description}" class="title">${i} <span>${names[`sound_set_${i}`].name}</span></h2><img src="${imgUrl}" title="${names[`sound_set_${i}`].name} - ${names[`sound_set_${i}`].description}" class="set" />`
+				const moduleContainer = document.createElement('div')
+				moduleContainer.classList.add('module-container')
+				for (let j = 1; j <= 9; j++) {
+					const module = document.createElement('button')
+					module.classList.add('module')
+					module.setAttribute('data-id', (i-1)*9+j)
+					module.setAttribute('title', `Sample id: ${(i - 1) * 9 + j}`)
+					module.addEventListener('click', play)
+					moduleContainer.appendChild(module)
+				}
+				container.appendChild(moduleContainer)
+				document.querySelector('main').appendChild(container)
+			}
+
+			document.querySelector("select").addEventListener('change', evt => {
+				updateNames(evt.target.selectedOptions[0].value)
+			})
+		})
+
+		async function updateNames(lang) {
+			const names = await loadNames(lang)
+
+			document.querySelector('h1').innerText = titleNames[lang]
+			document.title = titleNames[lang]
+
+			const elemts = document.querySelectorAll('.card h2')
+			for (let i = 1; i <= 72; i++) {
+				elemts[i-1].setAttribute('title', `${names[`sound_set_${i}`].name} - ${names[`sound_set_${i}`].description}`)
+				elemts[i-1].parentElement.querySelector('img').setAttribute('title', `${names[`sound_set_${i}`].name} - ${names[`sound_set_${i}`].description}`)
+				elemts[i-1].querySelector('span').innerText = names[`sound_set_${i}`].name
+			}
+		}
+
+		async function loadNames(lang) {
+			const langMapped = {
+				'hhbr': 'com.br',
+				'hhus': 'com',
+				'hhes': "es",
+				'hhnl': "nl",
+				'hhfr': "fr",
+				'hhde': "de",
+				'hhfi': "fi",
+				'hhit': "it",
+				'hhtr': "com.tr",
+			}[lang] ?? 'com'
+
+			const names = await fetch(`https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/names/names_${langMapped}.json`)
+				.then(r => r.json())
+
+			return names
+		}
+
+		const audioLoader = {}
+		let audioPlaying = false
+		function play(evt) {
+			const audioId = evt.target.getAttribute('data-id')
+			
+			if (audioPlaying) audioLoader[audioLoader.lastPlayed].pause();
+
+			if (!audioLoader[audioId]) {
+				audioLoader[audioId] = document.createElement('audio')
+				audioLoader[audioId].src = `https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/sounds/sound_machine_sample_${audioId}.mp3`
+				audioLoader[audioId].addEventListener("canplay", evt => evt.target.play())
+				audioLoader[audioId].addEventListener("end", () => audioPlaying = false)
+			} else {
+				audioLoader[audioId].currentTime = 0;
+				audioLoader[audioId].play()
+			}
+			audioPlaying = true
+
+			audioLoader.lastPlayed = audioId
+		}
+	</script>
+</head>
+
+<body>
+	<nav>
+		<h1>Samples Book</h1>
+		<select name="lang">
+			<option>hhbr</option>
+			<option>hhus</option>
+			<option>hhes</option>
+			<option>hhnl</option>
+			<option>hhfr</option>
+			<option>hhde</option>
+			<option>hhfi</option>
+			<option>hhit</option>
+			<option>hhtr</option>
+			<option>hhdk</option>
+			<option>hhno</option>
+			<option>hhse</option>
+		</select>
+	</nav>
+	<main></main>
+	<footer>
+		<p>Made with ❤. This website <strong>is not</strong> owned or operated by Sulake Oy® and is not affiliated with or part of Habbo Hotel®.</p>
+		<p>Read more at <a href="https://www.habborator.org/trax/" target="_blank">Habborator/Trax</a> and <a href="https://github.com/Habbianos/Traxmachine" target="_blank">GitHub/Habbianos/Traxmachine</a>.</p>
+	</footer>
+</body>
+
+</html>
