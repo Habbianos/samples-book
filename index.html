@@ -95,6 +95,7 @@
 		}
 		.title {
 			margin: 0;
+			--text-shadow-color: var(--set-border-color, black);
 			text-shadow: -1px 0px 0px black, 0px -1px 0px black, -1px -1px 0px black, 1px 0px 0px black, 0px 1px 0px black, 1px 1px 0px black;
 			font-size: 6pt;
 			line-height: 23px;
@@ -109,7 +110,8 @@
 			text-overflow: ellipsis;
 		}
 		.title span {
-			color: var(--set-color, "white")
+			color: var(--set-color, "white");
+			text-shadow: -1px 0px 0px var(--text-shadow-color), 0px -1px 0px var(--text-shadow-color), -1px -1px 0px var(--text-shadow-color), 1px 0px 0px var(--text-shadow-color), 0px 1px 0px var(--text-shadow-color), 1px 1px 0px var(--text-shadow-color);
 		}
 		.module-container {
 			display: flex;
@@ -190,6 +192,17 @@
 			"#FFCC33", "#FF00FF", "#CC6600", "#00CCCC", "#00BB00", "#CC9900", "#66CCFF", "#CCCC66", "#333300",
 			"#669966", "#669900", "#996633", "#669900", "#99CC33", "#EEEEEE", "#DD0000", "#1263C7", "#67CCD0",
 		]
+		const setBorder = [
+			"",
+			"#000000", "#000000", "#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#000000", "#FFFFFF",
+			"#FFFFFF", "#000000", "#000000", "#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#000000",
+			"#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#000000",
+			"#000000", "#FFFFFF", "#000000", "#FFFFFF", "#FFFFFF", "#000000", "#FFFFFF", "#000000", "#000000",
+			"#000000", "#FFFFFF", "#000000", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#FFFFFF", "#000000",
+			"#FFFFFF", "#FFFFFF", "#000000", "#000000", "#FFFFFF", "#000000", "#000000", "#000000", "#FFFFFF",
+			"#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#FFFFFF",
+			"#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000", "#000000",
+		]
 
 		const titleNames = {
 			'hhbr': "Livro de Sons",
@@ -213,7 +226,7 @@
 			for (let i = 1; i <= 72; i++) {
 				let container = document.createElement('div')
 				container.classList.add('card')
-				container.style.cssText = `--set-color: ${setColors[i] ?? "#000"}`
+				container.style.cssText = `--set-color: ${setColors[i] ?? "#000"}; --set-border-color: ${setBorder[i] ?? "#FFF"}`
 
 				let imgUrl = `https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/imgs/${('' + i).padStart(2, '0')}.gif`
 				container.innerHTML += `<h2 title="${names[`sound_set_${i}`].name} - ${names[`sound_set_${i}`].description}" class="title">${i} <span>${names[`sound_set_${i}`].name}</span></h2><img src="${imgUrl}" title="${names[`sound_set_${i}`].name} - ${names[`sound_set_${i}`].description}" class="set" />`
