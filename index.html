@@ -261,7 +261,7 @@
 
 			if (!audioLoader[audioId]) {
 				audioLoader[audioId] = document.createElement('audio')
-				audioLoader[audioId].src = `https://raw.githubusercontent.com/Habbianos/Traxmachine/main/components/samples-archive/uploads/sounds/sound_machine_sample_${audioId}.mp3`
+				audioLoader[audioId].src = `https://raw.githubusercontent.com/Habbianos/Traxmachine/main/assets/audio/wav/sound_machine_sample_${audioId}.wav`
 				audioLoader[audioId].addEventListener("canplay", evt => evt.target.play())
 				audioLoader[audioId].addEventListener("end", () => audioPlaying = false)
 			} else {
