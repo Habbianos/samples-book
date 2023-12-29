@@ -39,9 +39,9 @@
 			border-style: solid;
 
 			font-family: "Habbo Volter";
-			max-width: 949px;
+			max-width: 1000px;
 			margin: 50px auto;
-			padding: 30px 50px;
+			padding: 30px 20px;
 		}
 		nav {
 			position: relative;
@@ -68,6 +68,13 @@
 			line-height: 1.25rem;
 			padding: 0.25rem;
 			border-radius: 7px;
+		}
+		@media (max-width: 450px) {
+			nav select {
+				position: initial;
+				margin: 10px auto 0;
+				display: block;
+			}
 		}
 		main {
 			display: grid;
@@ -140,7 +147,8 @@
 			cursor: pointer;
 			border: none;
 		}
-		.module:hover {
+		.module:hover, .module:focus {
+			outline: none;
 			--module-bg-x: -21px;
 		}
 		.module:active {
@@ -196,7 +204,10 @@
 			'hhse': "Provexemplarbok",
 		}
 		window.addEventListener('load', async evt => {
-			document.querySelectorAll(".module").forEach(elem => elem.addEventListener('click', play))
+			document.querySelectorAll(".module").forEach(elem => {
+				elem.addEventListener('click', play)
+				elem.addEventListener('contextmenu', evt => play(evt, true));
+			})
 
 			document.querySelector("select").addEventListener('change', evt => {
 				updateNames(evt.target.selectedOptions[0].value)
@@ -238,8 +249,13 @@
 
 		const audioLoader = {}
 		let audioPlaying = false
-		function play(evt) {
+		function play(evt, newTab = false) {
 			const audioId = evt.target.getAttribute('data-id')
+
+			if (newTab) {
+				window.open(`http://images.habbo.com/dcr/hof_furni/mp3/sound_machine_sample_${audioId}.mp3`, '_blank')
+				return
+			}
 			
 			if (audioPlaying) audioLoader[audioLoader.lastPlayed].pause();
 
